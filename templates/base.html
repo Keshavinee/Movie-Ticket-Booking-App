@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ticket Booking App</title>
+  <script src="{{ url_for('static', filename='vue/vue.min.js') }}"></script>
+</head>
+<body>
+    <div id="app">
+        <div>
+          <button @click="toggleForm('login')">Login</button>
+          <button @click="toggleForm('signup')">Sign Up</button>
+        </div>
+        <div v-if="showLoginForm">
+          <login-form @login-success="handleLoginSuccess"></login-form>
+        </div>
+        <div v-if="showSignupForm">
+          <signup-form @signup-success="handleSignupSuccess"></signup-form>
+        </div>
+        <div v-if="showUserDashboard">
+          <user-dashboard :username="loggedInUsername"/>
+        </div>
+        <div v-if="showAdminDashboard">
+          <admin-dashboard></admin-dashboard>
+        </div>
+      </div>
+
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+
+</body>
+</html>

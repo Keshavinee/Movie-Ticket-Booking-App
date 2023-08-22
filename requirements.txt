@@ -1,0 +1,8 @@
+Flask==2.1.4
+Flask-SQLAlchemy==3.0.0
+Flask-Security==4.1.0
+Flask-JWT-Extended==4.3.0
+Flask-CORS==3.1.1
+marshmallow==3.14.0
+flask_marshmallow==0.15.0
+requests==2.26.0

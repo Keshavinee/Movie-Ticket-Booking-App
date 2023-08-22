@@ -1,0 +1,10 @@
+{
+  "devDependencies": {
+    "vue": "^3.3.4",
+    "vue-loader": "^15.10.1",
+    "vue-template-compiler": "^2.7.14"
+  },
+  "scripts": {
+    "build:components": "vue-template-compiler src/components/SignupForm.vue -o static/js/SignupForm.js && vue-template-compiler src/components/LoginForm.vue -o static/js/LoginForm.js"
+  }
+}

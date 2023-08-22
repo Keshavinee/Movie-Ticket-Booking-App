@@ -1,0 +1,156 @@
+openapi: 3.0.0
+info:
+  title: Ticket-Booking-App
+  version: 1.0.0
+paths:
+  /api/signup:
+    post:
+      summary: User Signup
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                password:
+                  type: string
+      responses:
+        '201':
+          description: User registered successfully
+        '400':
+          description: Bad request
+
+  /api/login:
+    post:
+      summary: User Login
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                password:
+                  type: string
+      responses:
+        '200':
+          description: User logged in successfully
+        '401':
+          description: Unauthorized
+
+  /api/theatres:
+    post:
+      summary: Create a new theatre (Admin)
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                caption:
+                  type: string
+                place:
+                  type: string
+      responses:
+        '201':
+          description: Theatre created successfully
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized (Admin only)
+
+  /api/theatres/{theatre_id}:
+    put:
+      summary: Edit theatre details (Admin)
+      parameters:
+        - in: path
+          name: theatre_id
+          schema:
+            type: integer
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                caption:
+                  type: string
+                place:
+                  type: string
+      responses:
+        '200':
+          description: Theatre details updated successfully
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized (Admin only)
+
+  /api/shows:
+    post:
+      summary: Create a new show (Admin)
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                rating:
+                  type: number
+                timing:
+                  type: string
+                tags:
+                  type: string
+                price:
+                  type: number
+                theatre_id:
+                  type: integer
+      responses:
+        '201':
+          description: Show created successfully
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized (Admin only)
+
+  /api/shows/{show_id}:
+    put:
+      summary: Edit show details (Admin)
+      parameters:
+        - in: path
+          name: show_id
+          schema:
+            type: integer
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                rating:
+                  type: number
+                timing:
+                  type: string
+                tags:
+                  type: string
+                price:
+                  type: number
+      responses:
+        '200':
+          description: Show details updated successfully
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized (Admin only)
